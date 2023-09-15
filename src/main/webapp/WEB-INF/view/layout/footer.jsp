@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<br/>
 	<div class="f--wrap">
 	    <div class="jumbotron text-center" style="margin-bottom:0">
 	    	<p>Footer</p>
