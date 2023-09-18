@@ -3,7 +3,7 @@ package com.tencoding.bank.dto;
 import lombok.Data;
 
 @Data
-public class SignInFromDto {
+public class SignInFormDto {
 	
 	private String username;
 	private String password;

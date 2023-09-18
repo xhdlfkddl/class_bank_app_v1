@@ -6,7 +6,8 @@
 	<h2>로그인 페이지</h2>
 	<h5>환영합니다.</h5>
 	<div class="bg-li p-md-5 h-75">
-		<form action="" method="post">
+		<!-- 로그인은 보안 때문에 예외적으로 post 방식을 활용. -->
+		<form action="/user/sign-in" method="post">
 			<div class="form-group">
 			  <label for="username">Username:</label>
 			  <input type="text" class="form-control" placeholder="Enter username" id="username" name="username">
