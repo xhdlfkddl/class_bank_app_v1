@@ -1,8 +1,11 @@
 package com.tencoding.bank.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.tencoding.bank.handler.exception.CustomPageException;
 
 @Controller
 @RequestMapping("/account")
@@ -12,8 +15,9 @@ public class AccountController {
 	// http://localhost:80/account/list
 	// 둘다 가능하게 설정
 	@GetMapping({"/list", ""})
-	public String list() {
-		return "account/list";
+	public void list() {
+//		return "account/list";
+		throw new CustomPageException("페이지가 존재하지않습니다.", HttpStatus.NOT_FOUND);
 	}
 	
 	// 계좌 생성 페이지
