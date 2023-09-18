@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.tencoding.bank.dto.SignUpFormDto;
 import com.tencoding.bank.repository.model.User;
 
 // xml 파일과 사용할 예정
@@ -12,7 +13,9 @@ import com.tencoding.bank.repository.model.User;
 public interface UserRepository {
 	// 성공 시 컬럼이 +1 또는 -1 또는 1개의 컬럼이 return 되기 때문에 
 	// return 타입이 int임  
-	public int insert(User user);
+	
+	// 매개변수 수정 User -> SignupFormDto
+	public int insert(SignUpFormDto dto);
 	public int updateById(User user);
 	public int deleteById(Integer id);
 	public User findById(Integer id);
