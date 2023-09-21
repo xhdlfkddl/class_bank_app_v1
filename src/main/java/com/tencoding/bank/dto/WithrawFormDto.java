@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class WithrawFormDto {
-	private Long amount;
+	private Long amount; 
 	private String wAccountNumber;
-	private String wAccountPassword;
+	private String wAccountPassword; 
+	private String dAccountNumber;
 }

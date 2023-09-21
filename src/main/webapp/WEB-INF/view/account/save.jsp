@@ -6,7 +6,7 @@
 	<h2>계좌 생성</h2>
 	<h5>새로운 계좌를 생성해보세요!</h5>
 	<div class="bg-li p-md-5 h-75">
-		<form action="" method="post">
+		<form action="/account/save" method="post">
 			<div class="form-grup">
 				<label for="number">계좌번호:</label>
 				<input type="text" class="form-control" placeholder="생성 계좌번호 입력" name="number">

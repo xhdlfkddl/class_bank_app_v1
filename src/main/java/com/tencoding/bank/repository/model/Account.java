@@ -2,29 +2,47 @@ package com.tencoding.bank.repository.model;
 
 import java.security.Timestamp;
 
+import org.springframework.http.HttpStatus;
+
+import com.tencoding.bank.handler.exception.CustomRestfulException;
+
 import lombok.Data;
 
 @Data
 public class Account {
-	private Integer id;
-	private String number;
-	private String password;
-	private Long balance;
-	private Integer userId;
-	private Timestamp createAt;
+	private Integer id; 
+	private String number; 
+	private String password; 
+	private Long balance; 
+	private Integer userId; 
+	private Timestamp createdAt; 
 	
-	// 출금기능
+	// 출금 기능 
 	public void withdraw(Long amount) {
 		this.balance -= amount;
 	}
-	
-	// 입금기능
+	// 입금 기능 
 	public void deposit(Long amount) {
 		this.balance += amount;
 	}
+	// 계좌 소유자 확인 
+	public void checkOwner(Integer principalId) {
+		if(this.userId != principalId) {
+			throw new CustomRestfulException("계좌 소유자가 아닙니다", HttpStatus.FORBIDDEN);
+		}
+	}
 	
-	// TODO: 개발 예정
-	// 패스워드 체크
-	// 잔액 조회
-	// 계좌 정보 확인
+	// 패스워드 체크 
+	public void checkPassword(String principalPassword) {
+		if(this.password.equals(principalPassword) == false) {
+			throw new CustomRestfulException("계좌 비밀번호가 틀렸습니다", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	// 잔액 여부 확인
+	public void checkBalance(Long amount) {
+		if(this.balance < amount) {
+			throw new CustomRestfulException("계좌 잔액이 부족합니다", HttpStatus.BAD_REQUEST);
+		}
+	}
 }

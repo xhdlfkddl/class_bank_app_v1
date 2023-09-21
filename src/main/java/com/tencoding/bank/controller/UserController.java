@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.tencoding.bank.dto.SignInFormDto;
 import com.tencoding.bank.dto.SignUpFormDto;
 import com.tencoding.bank.handler.exception.CustomRestfulException;
-import com.tencoding.bank.repository.interfaces.UserRepository;
 import com.tencoding.bank.repository.model.User;
 import com.tencoding.bank.service.UserService;
+import com.tencoding.bank.utills.Define;
 
 @Controller
 @RequestMapping("/user")
@@ -98,7 +98,7 @@ public class UserController {
 		principal.setPassword(null);
 		
 		// 3. 쿠키 + 세션
-		session.setAttribute("principal", principal);
+		session.setAttribute(Define.PRINCIPAL, principal);
 		
 		return "redirect:/account/list";
 
